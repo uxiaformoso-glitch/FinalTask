@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Actividades</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <h3>Menú</h3>
+        <ul>
+            <li>Listado de Actividades</li>
+            <li>Crear Tarea</li>
+            <li>Gestión de Catergorías</li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h1>Listado de Actividades</h1>
+
+        <form class="newTask">
+            <button class="btn">Crear Nueva Tarea</button>
+            <div>
+                <input type="text" placeholder="Nombre del archivo" class="archiveName">
+                <button class="btn">Subir</button>
+            </div>
+        </form>
+
+        <div class="containerTask">
+            <h2>Tareas pendientes</h2>
+            <div class="task" id="toDoTask"></div>
+        </div>
+
+        <div class="containerTask">
+            <h2>Tareas acabadas</h2>
+            <div class="task" id="finishedTask"></div>
+        </div>
+
+        <div class="statistics"></div>
+    </main>
+
+
+</body>
+</html>
