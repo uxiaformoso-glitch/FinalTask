@@ -46,12 +46,12 @@ La aplicación debe estar compuesta por 3 páginas HTML con las siguientes funci
 
 <ins>js</ins>  
     categorias.js  
-    form-task.js  
+    formTask.js  
     graficos.js  
     index.js  
     modelos.js  
     storage.js  
 
 categorias.html  
-create-task.html  
+createTask.html  
 index.html  
