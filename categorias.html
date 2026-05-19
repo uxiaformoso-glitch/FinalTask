@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Categorías</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <h3>Menú</h3>
+        <ul>
+            <li><a href="index.html">Listado de Actividades</a></li>
+            <li><a href="createTask.html">Crear Tarea</a></li>
+            <li><a href="categorias.html">Gestión de Catergorías</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Gestión de Categorías</h1>
+        <form class="form-container">
+            <div class="formField">
+                <label for="newCategory">Nueva Categoría</label>
+                <input type="text">
+            </div>
+            <div class="colorCategory">
+                <label for="color">Color de la Categoría</label>
+                <input type="color" class="colorField">
+            </div>
+
+            <button class="btn">Añadir Categoría</button>
+        </form>
+
+        <div class="allCategories"></div>
+    </main>
+</body>
+</html>

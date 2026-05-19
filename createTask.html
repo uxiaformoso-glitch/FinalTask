@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Tarea</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <h3>Menú</h3>
+        <ul>
+            <li><a href="index.html">Listado de Actividades</a></li>
+            <li><a href="createTask.html">Crear Tarea</a></li>
+            <li><a href="categorias.html">Gestión de Catergorías</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Crear Nueva Tarea</h1>
+
+        <form class="form-container">
+            <div class="formField">
+                <label for="title">Título:</label>
+                <input type="text" id="title">
+            </div>
+
+            <div class="formField">
+                <label for="description">Descripción:</label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+
+            <div class="formField">
+                <label for="date">Datos:</label>
+                <input type="date" name="date" id="date">
+            </div>
+
+            <div class="formField">
+                <label for="category">Categoría:</label>
+                <select name="category" id="category">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="studies">Estudios</option>
+                </select>
+            </div>
+
+            <div class="formField">
+                <label for="priority">Prioridad:</label>
+                <select name="priority" id="priority">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="low">Baja</option>
+                    <option value="average">Mediana</option>
+                    <option value="high">Alta</option>
+                </select>
+            </div>
+
+            <button class="btn">Crear Tarea</button>
+        </form>
+    </main>
+</body>
+</html>
