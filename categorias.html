@@ -12,26 +12,28 @@
         <ul>
             <li><a href="index.html">Listado de Actividades</a></li>
             <li><a href="createTask.html">Crear Tarea</a></li>
-            <li><a href="categorias.html">Gestión de Catergorías</a></li>
+            <li><a href="categorias.html">Gestión de Categorías</a></li>
         </ul>
     </nav>
 
     <main>
         <h1>Gestión de Categorías</h1>
-        <form class="form-container">
+        <form class="form-container" id="categoryForm">
             <div class="formField">
                 <label for="newCategory">Nueva Categoría</label>
-                <input type="text">
+                <input type="text" id="newCategory" required>
             </div>
             <div class="colorCategory">
-                <label for="color">Color de la Categoría</label>
-                <input type="color" class="colorField">
+                <label for="categoryColor">Color de la Categoría</label>
+                <input type="color" class="colorField" id="categoryColor">
             </div>
 
-            <button class="btn">Añadir Categoría</button>
+            <button type="submit" class="btn">Añadir Categoría</button>
         </form>
 
-        <div class="allCategories"></div>
+        <div class="allCategories" id="categoriesList"></div>
     </main>
+
+    <script type="module" src="js/categorias.js"></script>
 </body>
 </html>

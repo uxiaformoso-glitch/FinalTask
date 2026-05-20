@@ -12,7 +12,7 @@
         <ul>
             <li><a href="index.html">Listado de Actividades</a></li>
             <li><a href="createTask.html">Crear Tarea</a></li>
-            <li><a href="categorias.html">Gestión de Catergorías</a></li>
+            <li><a href="categorias.html">Gestión de Categorías</a></li>
         </ul>
     </nav>
 
@@ -22,30 +22,29 @@
         <form class="form-container">
             <div class="formField">
                 <label for="title">Título:</label>
-                <input type="text" id="title">
+                <input type="text" id="title" required>
             </div>
 
             <div class="formField">
                 <label for="description">Descripción:</label>
-                <textarea name="description" id="description"></textarea>
+                <textarea name="description" id="description" required></textarea>
             </div>
 
             <div class="formField">
                 <label for="date">Datos:</label>
-                <input type="date" name="date" id="date">
+                <input type="date" name="date" id="date" required>
             </div>
 
             <div class="formField">
                 <label for="category">Categoría:</label>
-                <select name="category" id="category">
+                <select name="category" id="category" required>
                     <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="studies">Estudios</option>
                 </select>
             </div>
 
             <div class="formField">
                 <label for="priority">Prioridad:</label>
-                <select name="priority" id="priority">
+                <select name="priority" id="priority" required>
                     <option value="" disabled selected>Selecciona una opción</option>
                     <option value="low">Baja</option>
                     <option value="average">Mediana</option>
@@ -53,8 +52,10 @@
                 </select>
             </div>
 
-            <button class="btn">Crear Tarea</button>
+            <button type="submit" class="btn">Crear Tarea</button>
         </form>
     </main>
+
+    <script src="js/formTask.js"></script>
 </body>
 </html>
