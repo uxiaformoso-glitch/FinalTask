@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        categories.forEach((cat, index) => {
+        categories.forEach((cat) => {
             const row = document.createElement('div');
             
             row.className = 'category-row';
@@ -28,23 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="colorIndicator"></span>
                     <strong>${cat.nom}</strong>
                 </div>
-                <button class="btn-delete">Eliminar</button>
+                <button class="btn-delete" onclick="removeCategory('${cat.nom}')">Eliminar</button>
             `;
 
             categoriesList.appendChild(row);
         });
+    }
 
-        //Attach individual event listeners to delete button
-        categoriesList.querySelectorAll('.btn-delete').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const indexToRemove = parseInt(e.target.getAttribute('data-index'), 10);
-                const currentCats = getStoredCategories();
+    window.removeCategory = function(categoryName) {
+        let currentCats = getStoredCategories();
 
-                currentCats.splice(indexToRemove, 1);
-                saveCategories(currentCats);
-                renderCategoriesUI();
-            });
-        });
+        currentCats = currentCats.filter(cat => cat.nom !== categoryName);
+
+        saveCategories(currentCats);
+        renderCategoriesUI();
     }
 
     //Form submission to create new categories
