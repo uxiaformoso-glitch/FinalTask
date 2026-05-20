@@ -21,8 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             row.className = 'category-row';
 
+            row.style.setProperty('--badge-color', cat.color);
+
             row.innerHTML = `
-                <strong>${cat.nom}</strong>
+                <div class="category-info">
+                    <span class="colorIndicator"></span>
+                    <strong>${cat.nom}</strong>
+                </div>
                 <button class="btn-delete">Eliminar</button>
             `;
 
