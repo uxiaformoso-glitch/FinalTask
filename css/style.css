@@ -10,6 +10,12 @@ h1 {
     margin: 30px;
 }
 
+h4 {
+    font-size: 17px;
+    margin: 0;
+    padding: 10px;
+}
+
 a {
     text-decoration: none;
     color: var(--white-color);
@@ -109,8 +115,30 @@ main {
 
 .task {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    border: 1px solid red;
 }
+
+.taskInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Code inserted in index.html from index.js*/
+.leftSide-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.rigthSide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
 
 .statistics {
     width: 100%;

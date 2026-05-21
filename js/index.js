@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.borderLeft = `6px  solid ${displayColor}`;
 
             card.innerHTML = `
-                <div>
+                <div class="taskInfo">
                     <div class="leftSide-container">
                         <h4>${task.titol}</h4>
                         <span>${displayCategoryName}</span>

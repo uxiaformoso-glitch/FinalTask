@@ -40,10 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
             //Standarized task object using models layout
             const newTask = createTaskModel(uniqueID, title, description, date, matchingCatObj, priority);
 
+            console.log("Form submitted successfully! Task details: ", newTask);
+
             addTaskToStorage(newTask);
 
             alert('¡Se ha creado una tarea nueva!');
-            window.location.href = 'index.html;'
+
+            window.location.href = 'index.html';
         });
     }
 });
