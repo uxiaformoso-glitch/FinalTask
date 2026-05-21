@@ -26,6 +26,6 @@ export function createTaskModel(id, titol, descripcio, data, categoriaObj, prior
         data,
         categoria: categoriaObj,
         prioritat,
-        realitzada: flase
+        realitzada: false
     };
 }
