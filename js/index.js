@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="leftSide-container">
                         <h4>${task.titol}</h4>
                         <span>${displayCategoryName}</span>
-                        <span>${task.data}</span>
-                        <p>${task.descripcio}</p>
+                        <span class="taskDate">${task.data}</span>
+                        <p class="taskDescription">${task.descripcio}</p>
                     </div>
                     <div class="rightSide-container">
-                        <span>Prioridad: <strong>${task.prioritat}</strong></span>
+                        <p><strong>${task.prioritat}</strong></p>
                         <div>
                             <label>
                                 <input type="checkbox" class="toggleStatus" data-id="${task.id}" ${task.realitzada ? 'checked' : ''}>
