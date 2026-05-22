@@ -21,6 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        //Sort tasks by pririty
+        const priorityWeights = {
+            'alta': 1,
+            'media': 2,
+            'mitjana': 2,
+            'baja': 3,
+            'baixa': 3
+        };
+
+        tasks.sort((a, b) => {
+            //If priority is undefined or unrecognized, fallback to 4
+            const weightA = priorityWeights[String(a.prioritat).toLowerCase()] || 4;
+            const weightB = priorityWeights[String(b.prioritat).toLowerCase()] || 4;
+
+            //Primary sort: Compare priorities
+            if (weightA !== weightB) {
+                return weightA - weightB; //Lower weight higher priority
+            }
+
+            //Secondary sort: closest date first
+            const dateA = a.data ? new Date(a.data).getTime() : Infinity;
+            const dateB = b.data ? new Date(b.data).getTime() : Infinity;
+
+            return dateA - dateB;
+        });
+
         tasks.forEach(task => {
             //Check if task's assigned category still exists in category manager
             const categoryStillExists = activeCategories.find(c => c.nom === task.categoria?.nom);
