@@ -108,14 +108,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .then(importedArray => {
                     const localTasks = getStoredTasks();
+                    const localCategories = getStoredCategories();
+
                     let itemsAddedCount = 0;
+                    let categoriesAddedCount = 0;
 
                     importedArray.forEach(incomingItem => {
-                        const collisionDetected = localTasks.some(existing => existing.id === incomingItem.id);
+                        const safeImportId = incomingItem.id.startsWith('import-')
+                            ? incomingItem.id : `import-${incomingItem.id}`;
+
+                        const collisionDetected = localTasks.some(existing => existing.id === safeImportId);
 
                         if (!collisionDetected) {
+                            if (incomingItem.categoria && incomingItem.categoria.nom) {
+                                const catName = incomingItem.categoria.nom;
+                                const catColor = incomingItem.categoria.color || '#7f8c8d';
+
+                                const categoryExists = localCategories.some(
+                                    c => c.nom.toLowerCase() === catName.toLowerCase()
+                                );
+
+                                if (!categoryExists) {
+                                    localCategories.push({nom: catName, color: catColor});
+                                    categoriesAddedCount++;
+                                }
+                            }
+
                             const standardRecord = {
-                                id: incomingItem.id,
+                                id: safeImportId,
                                 titol: incomingItem.titol || incomingItem.titulo,
                                 descripcio: incomingItem.descripcio || incomingItem.descripcion,
                                 data: incomingItem.data || incomingItem.fecha,
@@ -129,9 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
 
+                    //Save tasks back to local storage
                     saveTasks(localTasks);
+
+                    //Save categories if new ones were automatically discovered (.json)
+                    if (categoriesAddedCount > 0) {
+                        localStorage.setItem('categories_data', JSON.stringify(localCategories));
+                    }
+
                     renderTasksUI();
-                    alert(`Importación completada. Se añadieron ${itemsAddedCount} nuevas tareas`);
+                    alert(`Importación completada.\n Se añadieron ${itemsAddedCount} nuevas tareas.\n Se registraron ${categoriesAddedCount} nuevas categorías.`);
                     jsonPathInput.value = ''; 
                 })
                 .catch(err => {

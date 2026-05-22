@@ -20,13 +20,16 @@
     <main>
         <h1>Listado de Actividades</h1>
 
-        <form class="newTask">
+        <div class="newTask">
             <button class="btn"><a href="createTask.html">Crear Nueva Tarea</a></button>
-            <div>
-                <input type="text" placeholder="Nombre del archivo" class="archiveName" id="jsonPath" required>
-                <button type="submit" class="btn">Subir</button>
-            </div>
-        </form>
+            <form id="importForm">    
+                <div>
+                    <input type="text" placeholder="Nombre del archivo" class="archiveName" id="jsonPath">
+                    <button type="submit" class="btn">Subir</button>
+                </div>
+            </form>
+        </div>
+        
 
         <div class="containerTask">
             <h2>Tareas pendientes</h2>
