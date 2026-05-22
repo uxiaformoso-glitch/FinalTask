@@ -56,24 +56,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const displayCategoryName = categoryStillExists ? task.categoria.nom : 'Sin categoría (Eliminada)';
 
             const card = document.createElement('div');
-            card.className = 'cardContainer';
 
-            card.style.borderLeft = `6px  solid ${displayColor}`;
+            const cleanPriorityClass = String(task.prioritat).toLowerCase();
+
+            card.className = `cardContainer card-priority-${cleanPriorityClass}`;
 
             card.innerHTML = `
                 <div class="taskInfo">
-                    <div class="leftSide-container">
-                        <h4>${task.titol}</h4>
-                        <span>${displayCategoryName}</span>
-                        <span class="taskDate">${task.data}</span>
-                        <p class="taskDescription">${task.descripcio}</p>
+                    <div class="cardHeaderRow">
+                        <h4 class="${task.realitzada ? 'completed-title' : ''}">${task.titol}</h4>
+                        <span class="priorityTextLabel">${task.prioritat.charAt(0).toUpperCase() + task.prioritat.slice(1).toLowerCase()}</span>
                     </div>
-                    <div class="rightSide-container">
-                        <p><strong>${task.prioritat}</strong></p>
-                        <div>
-                            <label>
+
+                    <div class="categoryBadgeContainer">
+                        <span class="categoryTaskName" style="background-color: ${displayColor};">${displayCategoryName}</span>
+                    </div>
+
+                    <div class="taskDate">${task.data}</div>
+
+                    <div class="cardFooterRow">
+                        <p class="taskDescription">${task.descripcio}</p>
+                        <div class="btn-taskControls">
+                            <label class="btn-checkbox">
                                 <input type="checkbox" class="toggleStatus" data-id="${task.id}" ${task.realitzada ? 'checked' : ''}>
-                                ${task.realitzada ? 'Hecha' : 'Pendiente'}
                             </label>
                             <button class="btn-deleteTask" data-id="${task.id}" title="Eliminar tarea">
                                 <i class="fas fa-trash-alt"></i>
