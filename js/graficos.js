@@ -1,4 +1,4 @@
-let charInstance = null;
+let chartInstance = null;
 
 /**
  * Compiles and renders a bar chart displaying completed tasks by month
@@ -6,7 +6,7 @@ let charInstance = null;
  */
 
 export function renderChart(tasks) {
-    const canvasElement = document.getElementById('tasksChart');
+    const canvasElement = document.getElementById('taskChart');
     if (!canvasElement) return;
 
     //Filter out tasks marked as completed
@@ -37,23 +37,30 @@ export function renderChart(tasks) {
 
     const ctx = canvasElement.getContext('2d');
     chartInstance = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: monthLabels,
             datasets: [{
-                label: 'Tareas Realizadas por mes',
+                label: 'Tareas Realizadas',
                 data: monthlyCounts,
-                backgroundColor: 'rgba(41, 145, 224, 0.7)',
-                borderColor: 'rgb(41, 145, 224)',
-                borderWidth: 1
+                backgroundColor: 'rgba(163, 226, 218, 0.4)',
+                borderColor: 'rgb(74, 185, 171)',
+                borderWidth: 2,
+                tension: 0.1,
+                fill: true,
+                pointBackgroundColor: 'rgb(74, 185, 171)',
+                pointRadius: 4
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: {stepSize: 1}
+                    min: 0,
+                    max: 50,
+                    ticks: {stepSize: 5},
                 }
             }
         }

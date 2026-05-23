@@ -122,7 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        //Re-calculate and refresh the Chart.js canvas
+        const statisticsWrapper = document.querySelector('.statistics');
+        if (statisticsWrapper) {
+            statisticsWrapper.innerHTML = '<canvas id="taskChart"></canvas>'
+        }
         renderChart(tasks);
     }
 
